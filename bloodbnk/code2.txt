@@ -1,0 +1,251 @@
+"""BLOOD BANK MANAGEMENT SYSTEM"""
+
+import xlrd as xl
+filename=("D:/record.xlsx")
+# name of the excel sheet is record
+sheetnumber=0
+wb=xl.open_workbook(filename)
+sheet=wb.sheet_by_index(sheetnumber)
+norows=sheet.nrows
+
+print("\nDonors")
+Bpositivecount=0
+Bnegativecount=0
+Apositivecount=0
+Anegativecount=0
+Abpositivecount=0
+Abnegativecount=0
+Opositivecount=0
+Onegativecount=0
+l=[]
+l1=[]
+for i in range(1,norows):
+    x=str(sheet.cell_value(i,0))
+    l.append(x)
+    
+# count of respective bloodgroup in donors
+for i in l:
+    if i=='Bpositive':
+        Bpositivecount=Bpositivecount+1
+    elif i=='Bnegative':
+        Bnegativecount=Bnegativecount+1
+    elif i=='Apositive':
+        Apositivecount=Apositivecount+1
+    elif i=='Anegative':
+        Anegativecount=Anegativecount+1
+    elif i=='Abpositive':
+        Abpositivecount=Abpositivecount+1
+    elif i=='Abnegative':
+        Abnegativecount=Abnegativecount+1
+    elif i=='Opositive':
+        Opositivecount=Opositivecount+1
+    elif i=='Onegative':
+        Onegativecount=Onegativecount+1
+print("Blood Group Count\n")
+print("Bpositivecount=",Bpositivecount)
+print("Bnegativecount=",Bnegativecount)
+print("Apositivecount=",Apositivecount)
+print("Anegativecount=",Anegativecount)
+print("Abpositivecount=",Abpositivecount)
+print("Abnegativecount=",Abnegativecount)
+print("Opositivecount=",Opositivecount)
+print("Onegativecount=",Onegativecount)
+
+for i in range(1,norows):
+    l2=[]
+    for j in range(0,4):
+        y=sheet.cell_value(i,j)
+        l2.append(y)
+    print(l2)
+        
+l2.clear()
+
+
+print("\n\nDonors retrieved data")
+def retrieve(bloodgrp):
+    for i in range(1,norows):
+        for j in range(0,4):
+            l3=[]
+            if (sheet.cell_value(i,0)==bloodgrp):
+                for k in range(0,4):
+                    y=sheet.cell_value(i,k)
+                    l3.append(y)
+                print(l3)
+l3.clear()
+
+# all data of respective blood group
+print("\nData of Bpositive")
+retrieve("Bpositive")
+
+print("\nData of Bnegative")
+retrieve("Bnegative")
+
+print("\nData of Apositive")
+retrieve("Apositive")
+
+print("\nData of Anegative")
+retrieve("Anegative")
+
+print("\nData of Abpositive")
+retrieve("Abpositive")
+
+print("\nData of Abnegative")
+retrieve("Abnegative") 
+
+print("\nData of Opositive")
+retrieve("Opositive")
+
+print("\nData of Onegative")
+retrieve("Onegative")
+    
+print("\nReciepents")
+Bpositivecountr=0
+Bnegativecountr=0
+Apositivecountr=0
+Anegativecountr=0
+Abpositivecountr=0
+Abnegativecountr=0
+Opositivecountr=0
+Onegativecountr=0
+
+for i in range(1,norows):
+    y=str(sheet.cell_value(i,5))
+    l1.append(y)
+# count of respective blood group in reciepents        
+for i in l1:
+    if i=='Bpositive':
+        Bpositivecountr=Bpositivecountr+1
+    elif i=='Bnegative':
+        Bnegativecountr=Bnegativecountr+1
+    elif i=='Apositive':
+        Apositivecountr=Apositivecountr+1
+    elif i=='Anegative':
+        Anegativecountr=Anegativecountr+1
+    elif i=='Abpositive':
+        Abpositivecountr=Abpositivecountr+1
+    elif i=='Abnegative':
+        Abnegativecountr=Abnegativecountr+1
+    elif i=='Opositive':
+        Opositivecountr=Opositivecountr+1
+    elif i=='Onegative':
+        Onegativecountr=Onegativecountr+1
+
+print("\nBlood Group Count\n")
+print("Bpositivecount=",Bpositivecountr)
+print("Bnegativecount=",Bnegativecountr)
+print("Apositivecount=",Apositivecountr)
+print("Anegativecount=",Anegativecountr)
+print("Abpositivecount=",Abpositivecountr)
+print("Abnegativecount=",Abnegativecountr)
+print("Opositivecount=",Opositivecountr)
+print("Onegativecount=",Onegativecountr)
+
+for i in range(1,norows):
+    l2=[]
+    for j in range(5,9):
+        y=sheet.cell_value(i,j)
+        l2.append(y)
+    print(l2)
+        
+l2.clear()
+
+
+print("\n\nRecievents retrieved data")
+def retriever(bloodgrp):
+    for i in range(1,norows):   
+        for j in range(5,9):
+            l3=[]
+            if (sheet.cell_value(i,5)==bloodgrp):
+                for k in range(5,9):
+                    y=sheet.cell_value(i,k)
+                    l3.append(y)
+                print(l3)
+        
+l3.clear()
+        
+# all data of respective blood group
+print("\nData of Bpositive")
+retriever("Bpositive")
+
+print("\nData of Bnegative")
+retriever("Bnegative")
+
+print("\nData of Apositive")
+retriever("Apositive")
+
+print("\nData of Anegative")
+retriever("Anegative")
+
+print("\nData of Abpositive")
+retriever("Abpositive")
+
+print("\nData of Abnegative")
+retriever("Abnegative") 
+
+print("\nData of Opositive")
+retriever("Opositive")
+
+print("\nData of Onegative")
+retriever("Onegative")
+     
+    
+    
+print("Availability")
+
+
+if(Apositivecount>=Apositivecountr):
+    print("Blood group A+ is available")
+else:
+    print("Blood group A+ is not available")
+       
+    
+if(Anegativecount>=Anegativecountr):
+    print("Blood group A- is available")
+else:
+    print("Blood group A- is not available")
+    
+    
+
+    
+    
+if(Bpositivecount>=Bpositivecountr):
+    print("Blood group B+ is available")
+else:
+    print("Blood group B+ is not available")
+    
+    
+if(Bnegativecount>=Bnegativecountr):
+    print("Blood group B- is available")
+else:
+    print("Blood group B- is not available")
+    
+    
+    
+    
+    
+
+if(Abpositivecount>=Abpositivecountr):
+    print("Blood group AB+ is available")
+else:
+    print("Blood group AB+ is not available")
+    
+if(Abnegativecount>=Abnegativecountr):
+    print("Blood group AB- is available")
+else:
+    print("Blood group AB- is not available")
+
+    
+    
+    
+if(Opositivecount>=Opositivecountr):
+    print("Blood group O+ is available")
+else:
+    print("Blood group O+ is not available")
+    
+if(Onegativecount>=Onegativecountr):
+    print("Blood group O- is available")
+else:
+    print("Blood group O- is not available")
+    
+
+    
